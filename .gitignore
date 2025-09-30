@@ -3,6 +3,4 @@ node_modules
 *-lock.*
 *.lock
 *.log
-
-/dist
 /debug

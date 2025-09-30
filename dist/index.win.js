@@ -1,0 +1,3 @@
+(function(){function dlv(obj,key,def,p,undef){key=key.split?key.split('.'):key;for(p=0;p<key.length;p++){obj=obj?obj[key[p]]:undef;}return obj===undef?def:obj;}const RGX=/{{(.*?)}}/g;function templite(str,mix){return str.replace(RGX,(x,key,y)=>{x=0;y=mix;key=key.trim().split('.');while(y&&x<key.length){y=y[key[x++]];}return y!=null?y:'';});}window
+.libRosetta=
+function rosetta(obj){var locale='',tree=obj||{};return{set(lang,table){tree[lang]=Object.assign(tree[lang]||{},table);},locale(lang){return(locale=lang||locale);},table(lang){return tree[lang];},t(key,params,lang){var val=dlv(tree[lang||locale],key,'');const t=typeof val;if(t==='function')return val(params);if(t==='string')return templite(val,params);return val;}};}}());
